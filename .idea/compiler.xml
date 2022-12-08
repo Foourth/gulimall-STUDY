@@ -14,22 +14,17 @@
         <module name="gulimall-member" />
         <module name="gulimall-ware" />
         <module name="gulimall-gateway" />
+        <module name="demo" />
         <module name="gulimall-product" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gulimall-common" target="1.8" />
-      <module name="gulimall-coupon" target="1.8" />
-      <module name="gulimall-gateway" target="1.8" />
-      <module name="gulimall-member" target="1.8" />
-      <module name="gulimall-order" target="1.8" />
-      <module name="gulimall-product" target="1.8" />
-      <module name="gulimall-study1" target="1.8" />
-      <module name="gulimall-ware" target="1.8" />
+      <module name="demo" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
       <module name="gulimall-coupon" options="-parameters" />
       <module name="gulimall-gateway" options="-parameters" />
       <module name="gulimall-member" options="-parameters" />
