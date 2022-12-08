@@ -1,6 +1,5 @@
 package com.bigdata.gulimall.product.controller;
 
-import com.bigdata.common.utils.PageUtils;
 import com.bigdata.common.utils.R;
 import com.bigdata.gulimall.product.entity.CategoryEntity;
 import com.bigdata.gulimall.product.service.CategoryService;
@@ -9,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
-import java.util.Map;
+import java.util.List;
 
 
 /**
@@ -27,12 +26,14 @@ public class CategoryController {
     private CategoryService categoryService;
 
     /**
-     * 列表
+     * 获取三级分类列表
      */
-    @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params) {
-        PageUtils page = categoryService.queryPage(params);
-
+    @GetMapping("/list/tree")
+    public R list() {
+        long start = System.currentTimeMillis();
+        List<CategoryEntity> page = categoryService.getListTree();
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
         return R.ok().put("page", page);
     }
 
